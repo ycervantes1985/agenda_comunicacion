@@ -72,9 +72,8 @@ const RegisterForm = (props) => {
 
                     <label htmlFor='rol'>Rol </label>
                     <Field type='text' name='rol' as="select">
-                        <option value="Admin">Admin</option>
                         <option value="Profesor">Profesor</option>
-                        <option value="Apoderado">Apoderado</option>
+                        <option value="Estudiante">Estudiante</option>
                     </Field>
                     {errors.rol && touched.rol ? <p>{errors.rol}</p> : null}
 

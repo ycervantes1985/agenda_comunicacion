@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { ComunicacionesSchema } = require('./comunications.model');
 
 const uniqueValidator = require("mongoose-unique-validator")
 
@@ -28,7 +29,9 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:[true,"Por favor ingresar contraseña"],
         minlength:[8,"La contraseña debe tener minimo 8 caracteres"]
-    }
+    },
+
+    comunicaciones: [ComunicacionesSchema],
 },
 {timestamps:true});
 
