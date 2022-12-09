@@ -61,3 +61,59 @@ module.exports.getUser = async(req,res) => {
         return{success:false,data:err.message}
     }
 }
+
+module.exports.addEstudianteComunicacion = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const estudianteUpdated = await User.findByIdAndUpdate(id, {
+            $push: {
+                comunicaciones: req.body,                
+            }
+        }, { new: true });      
+
+        res.json({ message: 'Se ha actualizado el estudiante', estudianteUpdated })
+    } catch(err) {
+        res.status(500).json({ 
+            message: 'Ups no hemos actualizar',
+            err
+        });
+    }
+}
+
+module.exports.addAllEstudianteComunicacion = async (req, res) => {
+    try {
+        const estudianteUpdated = await User.updateMany({ rol: "Estudiante"} , {
+            $push: {
+                comunicaciones: req.body,                
+            }
+        }, { new: true });      
+
+        res.json({ message: 'Se ha actualizado el estudiante', estudianteUpdated })
+    } catch(err) {
+        res.status(500).json({ 
+            message: 'Ups no hemos actualizar',
+            err
+        });
+    }
+}
+
+module.exports.getComunicacionFromEstudiante = async (req, res) =>{
+    try {
+        const { id } = req.params;
+        const estudiante = await User.findById(id).populate({
+            path: 'comunicaciones'
+            
+        }).sort({createdAt:'desc'}).exec();
+        
+            res.json({ 
+            message: 'Se ha conseguido estudiante',
+            comunicaciones: estudiante.comunicaciones
+        });
+
+    } catch(err) {
+        res.status(404).json({ 
+            message: 'Ups no hemos podido conseguir el estudiante',
+            err
+        });
+    }
+}
