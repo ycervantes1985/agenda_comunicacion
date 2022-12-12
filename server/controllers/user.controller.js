@@ -117,3 +117,21 @@ module.exports.getComunicacionFromEstudiante = async (req, res) =>{
         });
     }
 }
+
+
+module.exports.deleteEstudiante = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        await User.deleteOne({ _id: id });
+        res.json({ 
+            message: 'Se ha eliminado el estudiante'
+        })
+
+    } catch(err) {
+        res.status(500).json({ 
+            message: 'Ups no hemos podido eliminar el estudiante',
+            err
+        })
+    };
+}

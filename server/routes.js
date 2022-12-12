@@ -10,10 +10,11 @@ module.exports = function(app){
     app.get("/api/users", UserController.getAll);
     app.get("/api/user/:id",UserController.getUser)
 
-    
+
     app.post("/api/user/comunicacion/:id",UserController.addEstudianteComunicacion)
     app.put("/api/user/comunicacion",UserController.addAllEstudianteComunicacion)
     app.get("/api/user/comunicacion/:id",UserController.getComunicacionFromEstudiante)
+    app.delete("/api/user/:id",UserController.deleteEstudiante)
 
 
 
