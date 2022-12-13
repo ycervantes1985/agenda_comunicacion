@@ -23,6 +23,10 @@ const ComunicacionesSchema = new Schema({
         required: [true, "Debe ingresar un tipo"],
     },
 
+    respuesta: {
+        type: String,
+    },
+
     foto: {
         type: String,
     },

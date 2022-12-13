@@ -135,3 +135,22 @@ module.exports.deleteEstudiante = async (req, res) => {
         })
     };
 }
+
+
+module.exports.updateComunicacion = async (req, res) => {
+    try {
+        const { id  } = req.params;
+        const estudianteUpdated = await User.updateOne({_id:id, 'comunicaciones._id':req.body._id}, {
+            $set: {
+                'comunicaciones.$.respuesta': req.body.respuesta,                
+            }
+        }, { new: true });      
+
+        res.json({ message: 'Se ha actualizado el estudiante', estudianteUpdated })
+    } catch(err) {
+        res.status(500).json({ 
+            message: 'Ups no hemos actualizar',
+            err
+        });
+    }
+}
