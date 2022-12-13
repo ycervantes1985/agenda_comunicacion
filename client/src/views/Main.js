@@ -29,7 +29,8 @@ useEffect(() => {
         <div>
             <nav className='nav-container'>
         <div className='logo'>
-          <p>Agenda Comunicacion</p>
+            <p className='nav-extra-bold-text'>Agenda </p> 
+            <p className='nav-extra-ligth-italic'>Inteligente</p>
         </div>  
         {user?.rol==="Profesor"  ?                 
         <ul className='nav justify-content-end'>                  
@@ -40,14 +41,14 @@ useEffect(() => {
           <li className='nav-item'>            
             <Link className="nav-link" variant="success" onClick={logOut}>LOGOUT</Link>
           </li>          
-        </ul> : <ul className='nav justify-content-end'>                  
+        </ul> : 
+        <ul className='nav justify-content-end'>                  
           <li className='nav-item'>
-            <button className='nav-link' to={"/register"}>REGISTRO</button>
+            <button className=' btn btn-outline-light btn-register' to={"/register"}>REGISTRO</button>
           </li>
           <li className='nav-item'>            
-            <Link className="nav-link" variant="success" onClick={logOut}>LOGOUT</Link>
+            <Link className="btn btn-outline-dark" onClick={logOut}>LOGOUT</Link>
           </li>    
-                 
         </ul> 
         
 }

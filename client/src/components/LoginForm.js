@@ -38,10 +38,10 @@ const LoginForm = (props) => {
                 valid,
             }) =>{
         return (
-            <div>
-                <h1>LOGIN</h1>
+            <div className='form-container'>
+                <h1 className='form-header'>LOGIN</h1>
                 <Form className= "form-login" method= "post" onSubmit={handleSubmit}>
-                    <label htmlFor="email" className="col-form-label">Correo Electrónico</label>
+                    <label htmlFor="email" className="col-sm-4 col-form-label" >Correo Electrónico</label>
                     <Field id='email' type="text" placeholder="Email" className={`form-control`} name='email'/>
                     {errors.email && touched.email && <p>{errors.email}</p>}
 
@@ -49,9 +49,9 @@ const LoginForm = (props) => {
                     <Field  id='password' type="password" placeholder="Contraseña" className={`form-control`} name='password'/>
                     {errors.password && touched.password && <p>{errors.password}</p>}
                     <br></br>
-                    <button type="submit" disabled={Object.values(errors).length > 0}>Login</button>
+                    <button type="submit" className='btn btn-danger btn-custom-color-login ' disabled={Object.values(errors).length > 0}>Login</button>
                 </Form>
-                </div>
+            </div>
         );
         }}
         </Formik>
