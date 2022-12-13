@@ -1,40 +1,188 @@
+
+
 .App {
   text-align: center;
+}
+
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+form button {
+  margin-top: 5%;
+}
+
+table {
+  margin: 5% auto;
+  width: 80%!important;
+}
+
+.action-btn {
+  margin: 2%;
+}
+
+
+.nav-container{
+  background: rgb(233,182,162);
+background: linear-gradient(90deg, rgba(233,182,162,0.6647701316854867) 22%, rgba(236,14,183,1) 53%, rgba(187,11,77,1) 78%);
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.logo{
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.remove-bg{
+  filter:brightness(1.1);
+  mix-blend-mode: multiply;
+  height: 75px;
+  width: 75px;
+  }
+
+.logo p{
+font-family: 'Nerko One', cursive;
+font-size: 45px;
+color: aliceblue;
+margin-top: 10px;
+
+}
+
+
+
+.form-login{
+max-width: 450px;
+margin: 0 auto;
+
+
+
+}
+
+.table{
+padding: 0;
+
+}
+
+.user-log{
+color: black;
+font-size: small;
+position: relative;
+left: 495px;
+bottom: 107px;
+
+}
+
+.logout-button{
+position: relative;
+left: 587px;
+bottom: 143px;
+color: white;
+text-decoration: none;
+
+}
+
+.form-register{
   max-width: 600px;
   margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.detail-top{  
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  
+    
+}
+
+.emergencia{
+  background-color: red;
+  }
+
+.detail-top h2{
+  color: black;
+    
+}
+
+.preexistencias-top{
+
+max-width: 1020px;
+margin-top: 35px;
+margin-left: 125px;
+
+
+
+}
+
+
+.table-test{
+max-width: 1200px;
+}
+
+
+
+.form-paciente{
+  padding-top: 20px;
+ 
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+.remove-bg{
+filter:brightness(1.1);
+mix-blend-mode: multiply;
+height: 75px;
+width: 75px;
+}
+
+h2{
   color: white;
+  margin-top: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-color{
+  color:white;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-container{
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+
+}
+
+.link-container{
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  align-items: center;
+}
+
+.nav-link{
+  color: white;
+  font-family: 'Nerko One', cursive;
+  font-size: 25px;
+}
+
+.nav-link:hover{
+  color: rgb(182, 95, 182);
+  font-family: 'Nerko One', cursive;
+  font-size: 25px;
+}
+
+.form-group{
+  margin-top: 12px;
 }

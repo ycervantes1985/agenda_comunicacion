@@ -40,7 +40,7 @@ const LoginForm = (props) => {
         return (
             <div>
                 <h1>LOGIN</h1>
-                <Form className= "contact" method= "post" onSubmit={handleSubmit}>
+                <Form className= "form-login" method= "post" onSubmit={handleSubmit}>
                     <label htmlFor="email" className="col-form-label">Correo Electrónico</label>
                     <Field id='email' type="text" placeholder="Email" className={`form-control`} name='email'/>
                     {errors.email && touched.email && <p>{errors.email}</p>}
