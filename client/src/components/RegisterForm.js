@@ -61,7 +61,7 @@ const RegisterForm = (props) => {
         return (
             <div>
                 <h1>REGISTRO</h1>
-                <Form className= "contact" method= "post" onSubmit={handleSubmit}>
+                <Form className= "form-register" method= "post" onSubmit={handleSubmit}>
                     <label htmlFor="firstName" className="col-sm-2 col-form-label">Nombre</label>
                     <Field id='firstName'type="text" className="form-control" placeholder="Nombre" name='firstName'/>
                     {errors.firstName && touched.firstName && <p>{errors.firstName}</p>}

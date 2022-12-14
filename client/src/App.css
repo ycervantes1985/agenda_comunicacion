@@ -54,10 +54,9 @@ gap: 15px;
 
 
 .remove-bg{
-  filter:brightness(1.1);
-  mix-blend-mode: multiply;
-  height: 75px;
-  width: 75px;
+  
+  height: 105px;
+  width: 105px;
   }
 
 .logo p{
@@ -182,12 +181,7 @@ max-width: 1200px;
 }
 
 
-.remove-bg{
-filter:brightness(1.1);
-mix-blend-mode: multiply;
-height: 75px;
-width: 75px;
-}
+
 
 h2{
   color: white;
