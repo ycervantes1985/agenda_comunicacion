@@ -75,7 +75,7 @@ const ComunicacionForm = () => {
                         </div>
                         <div>
                             <label htmlFor='comunicacion' className="col-form-label">Comunicacion</label>
-                            <Field type='text' name='comunicacion' className={`form-control`}/>
+                            <Field type='text' as="textarea" name='comunicacion' className={`form-control`}/>
                             {errors.comunicacion && touched.comunicacion ? <p>{errors.comunicacion}</p> : null}
                         </div>
                         <label htmlFor='tipo'>Tipo </label>
