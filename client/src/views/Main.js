@@ -34,31 +34,34 @@ useEffect(() => {
     return (
         <div>
             <nav className='nav-container'>
-        <div className='logo'>
-            <img className='remove-bg' src={logo} alt='logo agenda'></img>
-            <p className='nav-extra-bold-text'>Agenda </p> 
-            <p className='nav-extra-ligth-italic'>Inteligente</p>
-        </div>  
-        {user?.rol==="Profesor"  ?                 
-        
-        <ul className='nav justify-content-end'>        
-          
-          <li className='nav-item'>            
-            <Link className="nav-link" variant="success" onClick={logOut}>LOGOUT</Link>
-          </li>          
-        </ul> : 
-        <ul className='nav justify-content-end'>                  
-          <li className='nav-item'>
-            <button className='btn btn-outline-light btn-register' onClick={regist}>REGISTRO</button>
-          </li>
-          <li className='nav-item'>            
-            <Link className="btn btn-outline-dark" onClick={logOut}>LOGOUT</Link>
-          </li>    
-        </ul>         
-}
-      </nav>  
-
-               
+              <div className='logo'>
+                  <img className='remove-bg' src={logo} alt='logo agenda'></img>
+                  <p className='nav-extra-bold-text'>Agenda </p> 
+                  <p className='nav-extra-ligth-italic'>Inteligente</p>
+              </div>  
+              {user?.rol==="Profesor"  ?                 
+              
+              (<ul className='nav justify-content-end'>        
+                
+                <li className='nav-item'>            
+                  <Link className="btn btn-outline-dark" variant="success" onClick={logOut}>LOGOUT</Link>
+                </li>          
+              </ul> ):
+              user?.rol==="Estudiante" ?
+              (<ul className='nav justify-content-end'>                  
+                <li className='nav-item'>            
+                  <Link className="btn btn-outline-dark" onClick={logOut}>LOGOUT</Link>
+                </li>    
+              </ul>) :
+              (<ul className='nav justify-content-end'>                  
+                <li className='nav-item'>
+                  <button className='btn btn-outline-light btn-register' onClick={regist}>REGISTRO</button>
+                </li>
+                <li className='nav-item'>            
+                  <Link className="btn btn-outline-dark" to='/'>LOGIN</Link>
+                </li>    
+              </ul>)}
+            </nav>  
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import React, {  useEffect} from 'react';
 import {useUser} from "../contexts/userContext"
+import HomeAlumnos from './HomeAlumnos';
 import Profesor from './Profesor';
 
 const Detail = () => {
@@ -9,10 +10,11 @@ const Detail = () => {
     return (
         <div>
             {user?.rol==="Profesor"  ?  
-            <Profesor></Profesor> : 
-            <div>{user._id}{user.firstName}</div>
-}
-           
+            <Profesor></Profesor> :
+            <div>
+                <HomeAlumnos></HomeAlumnos>
+            </div>
+            }
         </div>
     );
 }

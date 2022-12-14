@@ -9,6 +9,7 @@ import {useUser} from "./contexts/userContext"
 import Detail from "./views/Detail";
 import EstudianteDet from "./views/EstudianteDet";
 import ComunicacionForm from "./components/ComunicacionForm";
+import ComunicacionDetail from "./views/ComunicacionDetail";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/add-comunicacion/:id" element={<ComunicacionForm></ComunicacionForm>}></Route>
             <Route path="/add-comunicacion/" element={<ComunicacionForm></ComunicacionForm>}></Route>
             <Route path="/estudiante/comunicaciones/:id" element={<EstudianteDet />}></Route>
+            <Route path="/estudiante/comunicacione/:id" element={<ComunicacionDetail/>}></Route>
         </Routes>
       </UserProvider>
     </div>

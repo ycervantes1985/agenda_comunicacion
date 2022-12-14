@@ -226,3 +226,12 @@ h2{
 .form-group{
   margin-top: 12px;
 }
+
+.admin-container-flex{
+  margin: 5px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+
+}
