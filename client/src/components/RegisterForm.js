@@ -59,9 +59,9 @@ const RegisterForm = (props) => {
                 valid,
             }) =>{
         return (
-            <div>
-                <h1>REGISTRO</h1>
-                <Form className= "form-register" method= "post" onSubmit={handleSubmit}>
+            <div className='form-container-register'>
+                <h1 className='form-header'>REGISTRO</h1>
+                <Form className= "form-login" method= "post" onSubmit={handleSubmit}>
                     <label htmlFor="firstName" className="col-sm-2 col-form-label">Nombre</label>
                     <Field id='firstName'type="text" className="form-control" placeholder="Nombre" name='firstName'/>
                     {errors.firstName && touched.firstName && <p>{errors.firstName}</p>}
@@ -89,7 +89,7 @@ const RegisterForm = (props) => {
                     <Field  id='confirmPassword' type="password" placeholder="Confirmar Contraseña" className="form-control" name='confirmPassword'/>
                     {errors.confirmPassword && touched.confirmPassword && <p>{errors.confirmPassword}</p>}
                     <br></br>
-                    <button type="submit" disabled={Object.values(errors).length > 0}>Registrarse</button>
+                    <button type="submit" className='btn btn-danger btn-custom-color-login ' disabled={Object.values(errors).length > 0}>Registrarse</button>
                 </Form>
                 </div>
         );

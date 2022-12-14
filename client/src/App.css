@@ -79,7 +79,7 @@ margin-top: 10px;
 
 }
 
-.form-container{
+.form-container, .form-container-register{
   font-family: 'Nunito', sans-serif;
   text-align: left;
   background: #fff;
@@ -89,6 +89,12 @@ margin-top: 10px;
   width: 500px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
+}
+
+.form-container-register{
+  margin: 5rem auto;
+  height: 650px;
+  width: 500px;
 }
 
 .form-header{
