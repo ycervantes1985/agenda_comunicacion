@@ -30,6 +30,7 @@ const traerComunicaciones = async() =>{
         <div>
             {user &&
             <Container>
+            <br/>
             <h3>Bienvenido a las comunicaciones de {user?.firstName} {user?.lastName}</h3>
 
             <h4 className='form-header'>Comunicaciones Generales</h4>
