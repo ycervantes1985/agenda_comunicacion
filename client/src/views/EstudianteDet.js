@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import {useParams, Link, useNavigate} from 'react-router-dom';
 import { useUser } from "../contexts/userContext";
-import {  getComunicacionFromEstudiante } from '../services/users.services'
+import {  getComunicacionFromEstudiante, getOneEstudiante } from '../services/users.services'
 import { SearchOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import {BooleanField } from "@pankod/refine-antd";
 import moment from 'moment';
@@ -13,6 +13,8 @@ function EstudianteDet() {
     const {user,setUser} = useUser();
     const {id} = useParams()
     const [comunicaciones, setComunicaciones] = useState();
+    const [estudiante, setEstudiante] = useState();
+
     const navigate = useNavigate()
 
     const [searchText, setSearchText] = useState('');
@@ -124,13 +126,22 @@ function EstudianteDet() {
 
     useEffect(() => {        
         traerComunicaciones()
+        traerEstudiante()
 }, []);   
 
 
 
+const traerEstudiante = async() =>{
+    const response = await getOneEstudiante(id)    
+    console.log("estudiante",response.data.estudiante[0])
+    setEstudiante(response.data.estudiante[0])
+}
+
+
+const gotoBack = () =>{navigate(`/home`)}
+
 const traerComunicaciones = async() =>{
     const response = await getComunicacionFromEstudiante(id)
-    console.log("Estas son las comunicaciones", response.data.comunicaciones)
     setComunicaciones(response.data.comunicaciones)
 }
 
@@ -201,8 +212,10 @@ const columns = [
     
 ];
   return (
-    <div>
+    <div className='body-profesor'>
+        <h3> {estudiante?.firstName} {estudiante?.lastName}</h3>
         <Table columns={columns} dataSource={comunicaciones} />
+        <Button className='btn-detail' onClick={gotoBack}>Volver</Button>        
     </div>
   )
 }

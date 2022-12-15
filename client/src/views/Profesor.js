@@ -190,8 +190,8 @@ const onDeleteEstudiante = async (record) =>{
 
 
   return (
-    <div>
-        <Button onClick={gotoAddAll}>Add</Button>
+    <div className='body-profesor'>
+        <Button className='btn-addMany' onClick={gotoAddAll}>Grupal</Button>
         <Table columns={columns} dataSource={estudiantes} />        
     </div>
   )

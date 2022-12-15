@@ -14,3 +14,7 @@ export const addComunicacionToEstudiante = (id, comunicacion) => axios.post(`htt
 export const addComunicacionToAllEstudiante = ( comunicacion) => axios.put(`http://localhost:8000/api/user/comunicacion/`, comunicacion);
 
 export const getComunicacionFromEstudiante = (id) => axios.get(`http://localhost:8000/api/user/comunicacion/${id}`);
+
+export const getOneComunicacionFromEstudiante = (id) => axios.get(`http://localhost:8000/api/user/comunicacionOnly/${id}`);
+
+export const getOneEstudiante = (id) => axios.get(`http://localhost:8000/api/usersOne/${id}`);

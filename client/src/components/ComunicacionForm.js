@@ -3,7 +3,8 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useParams, useNavigate } from 'react-router-dom';
 import { addComunicacionToEstudiante, addComunicacionToAllEstudiante } from '../services/users.services';
-import Button from 'react-bootstrap/Button';
+import { Button } from 'antd';
+
 import Swal from 'sweetalert2'
 
 const ComunicacionForm = () => {
@@ -20,7 +21,7 @@ const ComunicacionForm = () => {
 
     
 
-    const goToBack = () =>{navigate(`/user/comunicacion/${id}`)}
+    const goToBack = () =>{navigate(`/home`)}
     
     const comunicacionSchema = Yup.object().shape({
         asunto: Yup.string()
@@ -58,6 +59,9 @@ const ComunicacionForm = () => {
         }
     }
 
+
+    
+
     return (
         <div className="card">
             <Formik
@@ -85,8 +89,8 @@ const ComunicacionForm = () => {
                             </Field>
                             {errors.tipo && touched.tipo ? <p>{errors.tipo}</p> : null}
                         <div>
-                            <Button onClick={goToBack} variant="secondary">Volver</Button>
-                            <Button type='submit' >Agregar</Button>                            
+                            <Button onClick={goToBack}  className='btn-comBack' >Volver</Button>
+                            <Button type='submit' className='btn-comAdd' >Agregar</Button>                            
                         </div>
                     </Form>
                 )}
