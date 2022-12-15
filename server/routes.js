@@ -17,7 +17,7 @@ module.exports = function(app){
     app.get("/api/user/comunicacion/:id",UserController.getComunicacionFromEstudiante)
     app.delete("/api/user/:id",UserController.deleteEstudiante)
     app.put("/api/user/comunicacion/:id",UserController.updateComunicacion)
-    app.get("/api/user/comunicacionOnly/:id",UserController.getComunicacionFromEstudiante)
+    app.get("/api/user/comunicacionOnly/:id",UserController.getOneComunicacionFromEstudiante)
 
 
 

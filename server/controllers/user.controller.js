@@ -161,7 +161,7 @@ module.exports.updateComunicacion = async (req, res) => {
     }
 }
 
-module.exports.getComunicacionFromEstudiante = async (req, res) =>{
+module.exports.getOneComunicacionFromEstudiante = async (req, res) =>{
     try {
         const { id } = req.params;
         const estudiante = await User.find({_id:id})
