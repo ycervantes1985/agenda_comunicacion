@@ -5,7 +5,7 @@ import {  getComunicacionFromEstudiante, getOneEstudiante } from '../services/us
 import { SearchOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import {BooleanField } from "@pankod/refine-antd";
 import moment from 'moment';
-import { Button, Input, Space, Table } from 'antd';
+import { Button, Input, Space, Table, Tag } from 'antd';
 import Highlighter from 'react-highlight-words'
 
 function EstudianteDet() {
@@ -184,13 +184,28 @@ const columns = [
         key: 'leido',
         width: '15%',
         render:(value) => {
-           if (value === true)
-            return <CheckCircleOutlined style={{color:"green", marginLeft:15}}/>
+           if (value === true){
+           let color = 'blue';
+            return (
+                <Tag color={color} key={value}>
+                  Read
+                </Tag>
+              );
+           }
             else
-            return <CloseCircleOutlined style={{color:"red", marginLeft:15}}/>
+            {
+                let color = 'red';
+                return (
+                    <Tag color={color} key={value}>
+                      Unread
+                    </Tag>
+                  );
+               }
                 
             
-        }
+        },
+
+            
         
       },
     {
