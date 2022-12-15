@@ -150,12 +150,12 @@ const columns = [
         title: 'Fecha',
         dataIndex: 'createdAt',
         key: 'fecha',
-        width: '30%',
+        width: '15%',
         ...getColumnSearchProps('createdAt'),
         render: (createdAt) => {
         return (
             <div> 
-                <p>{moment(createdAt).format("DD-MM-YYYY hh:mm:ss")}</p>
+                <p>{moment(createdAt).format("DD-MM-YYYY")}</p>
             </div>
         );
         },

@@ -136,6 +136,12 @@ module.exports.deleteEstudiante = async (req, res) => {
     };
 }
 
+module.exports.getAllEstudiante = (request, response) => {
+    User.find({ rol: "Estudiante"})
+      .then((users) => response.json(users))
+      .catch((err) => response.json(err));
+  };
+
 
 module.exports.updateComunicacion = async (req, res) => {
     try {
@@ -155,9 +161,23 @@ module.exports.updateComunicacion = async (req, res) => {
     }
 }
 
+module.exports.getComunicacionFromEstudiante = async (req, res) =>{
+    try {
+        const { id } = req.params;
+        const estudiante = await User.find({_id:id})
+            .select({comunicaciones : { $elemMatch : {'_id': req.body._id}}})                 
+            res.json({ 
+            message: 'Se ha conseguido una comunicacion',
+            comunicacion:estudiante[0].comunicaciones[0]
+        });
 
-module.exports.getAllEstudiante = (request, response) => {
-    User.find({ rol: "Estudiante"})
-      .then((users) => response.json(users))
-      .catch((err) => response.json(err));
-  };
+    } catch(error) {
+        res.status(404).json({ 
+            message: 'Ups no hemos podido conseguir el estudiante',
+            error
+        });
+    }
+}
+
+
+
