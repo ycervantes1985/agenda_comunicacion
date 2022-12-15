@@ -138,13 +138,13 @@ module.exports.deleteEstudiante = async (req, res) => {
 
 module.exports.getAllEstudiante = (request, response) => {
     User.find({ rol: "Estudiante"})
-      .then((users) => response.json(users))
-      .catch((err) => response.json(err));
-  };
+    .then((users) => response.json(users))
+    .catch((err) => response.json(err));
+};
 
 
 
-  module.exports.getOneEstudiante = async (req, res) => {
+module.exports.getOneEstudiante = async (req, res) => {
     try {
         const { id } = req.params;
         const estudiante = await User.find({_id:id})
@@ -159,7 +159,7 @@ module.exports.getAllEstudiante = (request, response) => {
             error
         });
     }
-  };
+};
 
 
 module.exports.updateComunicacion = async (req, res) => {

@@ -50,9 +50,7 @@ const ComunicacionForm = () => {
             
                 const updateEstudiante = id ? await addComunicacionToEstudiante(id, values) : await addComunicacionToAllEstudiante(values)
                 Swal.fire('Se ha creado una comunicacion')            
-                id ? navigate(`/estudiante/comunicaciones/${id}`) : navigate(`/home`)
-
-            
+                id ? navigate(`/estudiante/comunicaciones/${id}`) : navigate(`/home`)            
         } catch(err) {
             console.log("Error", err)
             

@@ -133,7 +133,6 @@ function EstudianteDet() {
 
 const traerEstudiante = async() =>{
     const response = await getOneEstudiante(id)    
-    console.log("estudiante",response.data.estudiante[0])
     setEstudiante(response.data.estudiante[0])
 }
 
