@@ -7,7 +7,8 @@ export const deleteEstudiante = (id) => axios.delete(`http://localhost:8000/api/
 
 export const updateComunicacion = (id, comunicacion) => axios.put(`http://localhost:8000/api/user/comunicacion/${id}`, comunicacion);
 
-export const getPaciente = (id) => axios.get(`http://localhost:8000/api/paciente/${id}`);
+export const updateReadComunicacion = (id, comunicacion) => axios.put(`http://localhost:8000/api/user/comunicacionRead/${id}`, comunicacion);
+
 
 export const addComunicacionToEstudiante = (id, comunicacion) => axios.post(`http://localhost:8000/api/user/comunicacion/${id}`, comunicacion);
 
@@ -15,6 +16,8 @@ export const addComunicacionToAllEstudiante = ( comunicacion) => axios.put(`http
 
 export const getComunicacionFromEstudiante = (id) => axios.get(`http://localhost:8000/api/user/comunicacion/${id}`);
 
-export const getOneComunicacionFromEstudiante = (id) => axios.get(`http://localhost:8000/api/user/comunicacionOnly/${id}`);
+export const getOneComunicacionFromEstudiante = (id, values) => axios.get(`http://localhost:8000/api/user/comunicacionOnly/${id}`, values);
 
 export const getOneEstudiante = (id) => axios.get(`http://localhost:8000/api/usersOne/${id}`);
+
+
