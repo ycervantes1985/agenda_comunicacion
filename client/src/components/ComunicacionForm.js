@@ -46,7 +46,9 @@ const ComunicacionForm = () => {
     });
 
     const addComunicacion = async (values) => {
-        try {     
+
+        console.log("hola estoy en la funcion")
+         try {     
             
                 const updateEstudiante = id ? await addComunicacionToEstudiante(id, values) : await addComunicacionToAllEstudiante(values)
                 Swal.fire('Se ha creado una comunicacion')            
@@ -54,7 +56,7 @@ const ComunicacionForm = () => {
         } catch(err) {
             console.log("Error", err)
             
-        }
+        } 
     }
 
 
@@ -87,8 +89,8 @@ const ComunicacionForm = () => {
                             </Field>
                             {errors.tipo && touched.tipo ? <p>{errors.tipo}</p> : null}
                         <div>
-                            <Button onClick={goToBack}  className='btn-comBack' >Volver</Button>
-                            <Button type='submit' className='btn-comAdd' >Agregar</Button>                            
+                            <button onClick={goToBack}  className='btn-comBack' >Volver</button>
+                            <button type='submit' className='btn-comAdd' >Agregar</button>                            
                         </div>
                     </Form>
                 )}
