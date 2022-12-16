@@ -226,10 +226,14 @@ const columns = [
     
 ];
   return (
-    <div className='body-profesor'>
-        <h3> {estudiante?.firstName} {estudiante?.lastName}</h3>
+    <div className='form-container-profesor'>
+        <div className='form-header'>
+            <h4 className='form-header'> Alumno {estudiante?.firstName} {estudiante?.lastName}</h4>
+            <div className="justify-btn">
+                <button className='btn btn-outline-light' onClick={gotoBack}>Volver</button>        
+            </div>
+        </div>
         <Table columns={columns} dataSource={comunicaciones} />
-        <Button className='btn-detail' onClick={gotoBack}>Volver</Button>        
     </div>
   )
 }
