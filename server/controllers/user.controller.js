@@ -184,6 +184,8 @@ module.exports.getOneComunicacionFromEstudiante = async (req, res) =>{
     try {
         const { id } = req.params;
         const estudiante = await User.find({_id:id})
+            console.log("id",id)
+            console.log("req.body",req.body)
             .select({comunicaciones : { $elemMatch : {'_id': req.body._id}}})                 
             res.json({ 
             message: 'Se ha conseguido una comunicacion',
