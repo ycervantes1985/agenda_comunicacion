@@ -15,9 +15,8 @@ export const addComunicacionToAllEstudiante = ( comunicacion) => axios.put(`http
 
 export const getComunicacionFromEstudiante = (id) => axios.get(`http://localhost:8000/api/user/comunicacion/${id}`);
 
-export const getOneComunicacionFromEstudiante = (id) => axios.get(`http://localhost:8000/api/user/comunicacionOnly/${id}`);
+export const getOneComunicacionFromEstudiante = (id, values) => axios.get(`http://localhost:8000/api/user/comunicacionOnly/${id}`, values);
 
 export const getOneEstudiante = (id) => axios.get(`http://localhost:8000/api/usersOne/${id}`);
-export const getAComunicacionFromEstudiante = (id, body) => {
-    console.log("dentro de comunicacion",body)
-    axios.get(`http://localhost:8000/api/user/comunicacionOnly/${id}`, body);}   
+
+

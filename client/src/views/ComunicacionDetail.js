@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/esm/Button';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/userContext';
-import { getAComunicacionFromEstudiante } from '../services/users.services';
+import { getComunicacionFromEstudiante } from '../services/users.services';
 
 
 const ComunicacionDetail = () => {
@@ -15,16 +15,12 @@ const ComunicacionDetail = () => {
     const [comunicacion, setComunicacion] = useState();
     const navigate = useNavigate()
     const {user,setUser} = useUser();
-    const [data, setData] = useState(user?._id);
+      
     
-    
-    console.log(id)
-    console.log(user._id)
-    const getComunicacion = async(data) => {
+    const getComunicacion = async() => {
         try{
-            console.log("data",id)
-            const response = await getAComunicacionFromEstudiante(data, id)
-            console.log(response)
+            const response = await getComunicacionFromEstudiante(user?._id, id)
+            setComunicacion(response?.data)
         }catch(err){
             console.log(err)
         }
@@ -35,7 +31,7 @@ const ComunicacionDetail = () => {
         getComunicacion();
     }, []);
 
-
+console.log(comunicacion)
 
     return (
         <div>
