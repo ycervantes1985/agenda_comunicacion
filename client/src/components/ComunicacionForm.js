@@ -78,24 +78,22 @@ const ComunicacionForm = () => {
             >
                 {({ errors, touched }) => (
                     <Form className= "form-login">
-                        <div>
-                            <label htmlFor='asunto' className="col-form-label">Asunto</label>
-                            <Field type='text' name='asunto' className={(touched.asunto && errors.asunto) ? 'form-control is-invalid' : 'form-control'}/>
-                            {errors.asunto && touched.asunto ? <p className="text-danger">{errors.asunto}</p> : null}
-                        </div>
-                        <div>
-                            <label htmlFor='comunicacion' className="col-form-label">Comunicacion</label>
-                            <Field type='text' as="textarea" name='comunicacion' className={(touched.comunicacion && errors.comunicacion) ? 'form-control is-invalid' : 'form-control'}/>
-                            {errors.comunicacion && touched.comunicacion ? <p className="text-danger">{errors.comunicacion}</p> : null}
-                        </div>
+
+                        <label htmlFor='asunto' className="col-form-label">Asunto</label>
+                        <Field type='text' name='asunto' className={(touched.asunto && errors.asunto) ? 'form-control is-invalid' : 'form-control'}/>
+                        {errors.asunto && touched.asunto ? <p className="text-danger">{errors.asunto}</p> : null}
+
+                        <label htmlFor='comunicacion' className="col-form-label">Comunicacion</label>
+                        <Field type='text' as="textarea" name='comunicacion' className={(touched.comunicacion && errors.comunicacion) ? 'form-control is-invalid' : 'form-control'}/>
+                        {errors.comunicacion && touched.comunicacion ? <p className="text-danger">{errors.comunicacion}</p> : null}
+
                         <label htmlFor='tipo'>Tipo </label>
-                            <Field type='text' name='tipo' as="select" className="form-select">
-                                <option value="Individual">Individual</option>
-                                <option value="Grupal">Grupal</option>
-                            </Field>
-                            {errors.tipo && touched.tipo ? <p className="text-danger">{errors.tipo}</p> : null}
-                        <div>
-                        <br/>
+                        <Field type='text' name='tipo' as="select" className="form-select text">
+                            <option value="Individual">Individual</option>
+                            <option value="Grupal">Grupal</option>
+                        </Field>
+                        {errors.tipo && touched.tipo ? <p className="text-danger">{errors.tipo}</p> : null}
+                        <div className='btn-aling'>
                             <button type='submit' className='btn btn-danger btn-custom-color-login' >Agregar</button>                            
                         </div>
                     </Form>

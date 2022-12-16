@@ -48,8 +48,9 @@ const LoginForm = (props) => {
                     <label htmlFor="password" className="col-sm-2 col-form-label">Contraseña</label>
                     <Field  id='password' type="password" placeholder="Contraseña" className={`form-control`} name='password'/>
                     {errors.password && touched.password && <p>{errors.password}</p>}
-                    <br></br>
-                    <button type="submit" className='btn btn-danger btn-custom-color-login ' disabled={Object.values(errors).length > 0}>Login</button>
+                    <div className='btn-aling'>
+                        <button type="submit" className='btn btn-danger btn-custom-color-login ' disabled={Object.values(errors).length > 0}>Login</button>
+                    </div>
                 </Form>
             </div>
         );

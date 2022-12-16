@@ -33,11 +33,12 @@ const RespuestaForm = (props) => {
         return (
             <div>
                 <Form className= "form-login" method= "post" onSubmit={handleSubmit}>
-                    <label htmlFor="respuesta" className="col-sm-12 col-form-label" >Respuesta</label>
+                    <label htmlFor="respuesta" className="col-sm-12 col-form-label" >Respuesta apoderado:</label>
                     <Field id='respuesta' type="text" as="textarea" placeholder="Si lo desea puede enviar una respuesta al profesor" className='form-control textarea-control' name='respuesta'/>
                     {errors.respuesta && touched.respuesta && <p>{errors.respuesta}</p>}
-                    <br></br>
-                    <button type="submit" className='btn btn-danger btn-custom-color-login ' disabled={Object.values(errors).length > 0}>Responder</button>
+                    <div className='btn-aling'>
+                        <button type="submit" className='btn btn-danger btn-custom-color-login ' disabled={Object.values(errors).length > 0}>Responder</button>
+                    </div>
                 </Form>
             </div>
         );

@@ -55,11 +55,16 @@ const sendResponse = async(value) =>{
             {
                comunicacion && 
                <div className= "container-comunicacion-detail" >
-                    <h3 className='form-header'>Asunto : {comunicacion.asunto}</h3>
+                    <div className='form-header'>
+                        <h3 className='form-header'>Asunto : {comunicacion.asunto}</h3>
+                        <div className="justify-btn">
+                            <button className='btn btn-outline-light' onClick={()=>navigate("/home")}>Volver</button>        
+                         </div>
+                    </div>
                     <div className="body-comunication-detail" >
                         <div>
-                            <label>comunicacion:</label>
-                            <p> {comunicacion.comunicacion}</p>
+                            <label>Comunicacion:</label>
+                            <p> {comunicacion[0].comunicacion}</p>
                         </div>
                     </div>
                     <RespuestaForm onSubmitProp={sendResponse} />
