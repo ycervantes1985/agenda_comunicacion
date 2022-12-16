@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/esm/Button';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/userContext';
-import { getComunicacionFromEstudiante } from '../services/users.services';
+import { getComunicacionFromEstudiante, updateComunicacion } from '../services/users.services';
 import RespuestaForm from '../components/RespuestaForm';
 
 
@@ -38,6 +38,17 @@ console.log(comunicacion)
         getComunicacion();
     }, []);
 
+const sendResponse = async(value) =>{
+    try {
+        console.log("value",value)
+        value._id = id
+        const response = await updateComunicacion(user._id,value)
+        console.log(response)
+    } catch (error) {
+        console.log(error)
+    }
+
+}
 
     return (
         <div>
@@ -51,7 +62,7 @@ console.log(comunicacion)
                             <p> {comunicacion[0].comunicacion}</p>
                         </div>
                     </div>
-                    <RespuestaForm/>
+                    <RespuestaForm onSubmitProp={sendResponse} />
                </div> 
                
             }

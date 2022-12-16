@@ -14,9 +14,7 @@ const RespuestaForm = (props) => {
         }}
         validationSchema={Yup.object().shape({
             respuesta: Yup.string()
-            .email("Correo no valido")
-            .min(3, "Este correo electrónico es incorrecto")
-            .required("Por favor, ingresa un correo electrónico válido"),
+            .required("Por favor, ingresa un respuesta al profesor"),
         })}
 
         onSubmit={(values, {setSubmitting}) =>{
