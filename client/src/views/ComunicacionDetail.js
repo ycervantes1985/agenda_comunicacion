@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/userContext';
 import { getComunicacionFromEstudiante, updateComunicacion } from '../services/users.services';
 import RespuestaForm from '../components/RespuestaForm';
+import Swal from 'sweetalert2'
 
 
 const ComunicacionDetail = () => {
@@ -43,6 +44,8 @@ const sendResponse = async(value) =>{
         console.log("value",value)
         value._id = id
         const response = await updateComunicacion(user._id,value)
+        Swal.fire('Se ha creado una comunicacion') 
+        navigate("/home")
         console.log(response)
     } catch (error) {
         console.log(error)
