@@ -88,8 +88,10 @@ const RegisterForm = (props) => {
                     <label htmlFor="confirmPassword" className="col-form-label">Confirmar Contraseña</label>
                     <Field  id='confirmPassword' type="password" placeholder="Confirmar Contraseña" className={(touched.confirmPassword && errors.confirmPassword) ? 'form-control is-invalid' : 'form-control'} name='confirmPassword'/>
                     {errors.confirmPassword && touched.confirmPassword && <p className="text-danger">{errors.confirmPassword}</p>}
-                    <br></br>
-                    <button type="submit" className='btn btn-danger btn-custom-color-login ' disabled={Object.values(errors).length > 0}>Registrarse</button>
+                    <div className='btn-aling'>
+
+                        <button type="submit" className='btn btn-danger btn-custom-color-login ' disabled={Object.values(errors).length > 0}>Registrarse</button>
+                    </div>
                 </Form>
                 </div>
         );
