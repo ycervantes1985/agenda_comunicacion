@@ -127,8 +127,6 @@ function Profesor() {
 
 const traerEstudiantes = async() =>{
     const response = await getAllEstudiantes(URL)
-    
-    console.log(response)
     setEstudiantes(response.data)
 }
 
@@ -140,18 +138,18 @@ const gotoAddAll = () =>{navigate(`/add-comunicacion/`)}
 
 const columns = [
     {
-      title: 'Nombre',
-      dataIndex: 'firstName',
-      key: 'firstName',
-      width: '30%',
-      ...getColumnSearchProps('firstName'),
+        title: 'Nombre',
+        dataIndex: 'firstName',
+        key: 'firstName',
+        width: '30%',
+        ...getColumnSearchProps('firstName'),
     },
     {
-      title: 'Apellidos',
-      dataIndex: 'lastName',
-      key: 'lastName',
-      width: '20%',
-      ...getColumnSearchProps('lastName'),
+        title: 'Apellidos',
+        dataIndex: 'lastName',
+        key: 'lastName',
+        width: '20%',
+        ...getColumnSearchProps('lastName'),
     },
     
     {
@@ -189,12 +187,12 @@ const onDeleteEstudiante = async (record) =>{
 }
 
 
-  return (
-    <div>
-        <Button onClick={gotoAddAll}>Add</Button>
+return (
+    <div className='body-profesor'>
+        <Button className='btn-addMany' onClick={gotoAddAll}>Grupal</Button>
         <Table columns={columns} dataSource={estudiantes} />        
     </div>
-  )
+)
 }
 
 export default Profesor

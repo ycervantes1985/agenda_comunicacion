@@ -12,6 +12,7 @@ module.exports = function(app){
 
 
     app.get("/api/usersE/",UserController.getAllEstudiante)
+    app.get("/api/usersOne/:id",UserController.getOneEstudiante)
     app.post("/api/user/comunicacion/:id",UserController.addEstudianteComunicacion)
     app.put("/api/user/comunicacion/",UserController.addAllEstudianteComunicacion)
     app.get("/api/user/comunicacion/:id",UserController.getComunicacionFromEstudiante)
