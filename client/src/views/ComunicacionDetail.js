@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/esm/Button';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/userContext';
 import { getComunicacionFromEstudiante } from '../services/users.services';
+import RespuestaForm from '../components/RespuestaForm';
 
 
 const ComunicacionDetail = () => {
@@ -42,11 +43,16 @@ console.log(comunicacion)
         <div>
             {
                comunicacion && 
-               <>
-                    <p>comunicacion: {comunicacion[0]._id}</p>
-                    <p>comunicacion asunto : {comunicacion[0].asunto}</p>
-                    <p>user: {user?._id}</p>
-               </> 
+               <div className= "container-comunicacion-detail" >
+                    <h3 className='form-header'>Asunto : {comunicacion[0].asunto}</h3>
+                    <div className="body-comunication-detail" >
+                        <div>
+                            <label>comunicacion:</label>
+                            <p> {comunicacion[0].comunicacion}</p>
+                        </div>
+                    </div>
+                    <RespuestaForm/>
+               </div> 
                
             }
             
