@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/esm/Button';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/userContext';
-import { getComunicacionFromEstudiante, updateComunicacion } from '../services/users.services';
+import { getComunicacionFromEstudiante, updateComunicacion, getOneComunicacionFromEstudiante } from '../services/users.services';
 import RespuestaForm from '../components/RespuestaForm';
 
 
@@ -14,7 +14,7 @@ const ComunicacionDetail = () => {
 
     const {id} = useParams()
     
-    const [comunicaciones, setComunicaciones] = useState();
+    const [comunicacion, setComunicacion] = useState();
     const navigate = useNavigate()
     const {user,setUser} = useUser();
       
@@ -22,17 +22,14 @@ const ComunicacionDetail = () => {
     const getComunicacion = async() => {
         try{
             console.log(id)
-            const response = await getComunicacionFromEstudiante(user?._id)
-            setComunicaciones(response?.data.comunicaciones)
+            const response = await getOneComunicacionFromEstudiante(user?._id, {_id:id})
+            setComunicacion(response?.data.comunicacion)
+            console.log("esta es la comunicacion",response?.data.comunicacion)
         }catch(err){
             console.log(err)
         }
 
     }
-
-let comunicacion = comunicaciones?.filter(comunicacion => comunicacion._id === id)
-
-console.log(comunicacion)
 
     useEffect(() => {
         getComunicacion();
@@ -55,11 +52,11 @@ const sendResponse = async(value) =>{
             {
                comunicacion && 
                <div className= "container-comunicacion-detail" >
-                    <h3 className='form-header'>Asunto : {comunicacion[0].asunto}</h3>
+                    <h3 className='form-header'>Asunto : {comunicacion.asunto}</h3>
                     <div className="body-comunication-detail" >
                         <div>
                             <label>comunicacion:</label>
-                            <p> {comunicacion[0].comunicacion}</p>
+                            <p> {comunicacion.comunicacion}</p>
                         </div>
                     </div>
                     <RespuestaForm onSubmitProp={sendResponse} />

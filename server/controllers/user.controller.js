@@ -207,7 +207,7 @@ module.exports.getOneComunicacionFromEstudiante = async (req, res) =>{
         console.log("idsss", req.params)
         const { id } = req.params;
         const estudiante = await User.find({_id:id})
-            .select({comunicaciones : { $elemMatch : {'_id': req.body.values}}})                 
+            .select({comunicaciones : { $elemMatch : {'_id': req.body._id}}})                 
             res.json({ 
             message: 'Se ha conseguido una comunicacion',
             comunicacion:estudiante[0].comunicaciones[0]
