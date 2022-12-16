@@ -50,7 +50,7 @@ const traerComunicaciones = async() =>{
                                 {comunicacion.comunicacion}
                             </Card.Text>
                             <div className="flex-edit-delete">
-                                <button className="btn btn-primary" onClick={()=>navigate(`/estudiante/comunicacione/:id/${comunicacion._id}`)}>Leer</button>
+                                <button className="btn btn-primary" onClick={()=>navigate(`/estudiante/comunicacione/${comunicacion._id}`)}>Leer</button>
                                 {/* <EditOutlined style={{ fontSize: '1.4em'}} onClick={()=>navigate(`/admin/${comunicacion._id}`)}/> */}
                             </div>
 
@@ -75,7 +75,7 @@ const traerComunicaciones = async() =>{
                                 {comunicacion.comunicacion}
                             </Card.Text>
                             <div className="flex-edit-delete">
-                            <button className="btn btn-primary" onClick={()=>navigate(`/estudiante/comunicacione/:id/${comunicacion._id}`)}>Leer</button>
+                            <button className="btn btn-primary" onClick={()=>navigate(`/estudiante/comunicacione/${comunicacion._id}`)}>Leer</button>
                                 {/* <EditOutlined style={{ fontSize: '1.4em'}} onClick={()=>navigate(`/admin/${comunicacion._id}`)}/> */}
                             </div>
 
