@@ -63,7 +63,13 @@ const ComunicacionForm = () => {
     
 
     return (
-        <div className="card">
+        <div className='form-container'>
+            <div className='form-header'>
+                <h1 className='form-header'>Comuncicación</h1>
+                <div className="justify-btn">
+                    <button onClick={goToBack}  className='btn btn-outline-light' >Volver</button>
+                </div>
+            </div>
             <Formik
                 enableReinitialize
                 initialValues={comunicacion}
@@ -71,26 +77,26 @@ const ComunicacionForm = () => {
                 onSubmit={(values) => addComunicacion(values)}
             >
                 {({ errors, touched }) => (
-                    <Form>
+                    <Form className= "form-login">
                         <div>
                             <label htmlFor='asunto' className="col-form-label">Asunto</label>
-                            <Field type='text' name='asunto' className={`form-control`}/>
-                            {errors.asunto && touched.asunto ? <p>{errors.asunto}</p> : null}
+                            <Field type='text' name='asunto' className={(touched.asunto && errors.asunto) ? 'form-control is-invalid' : 'form-control'}/>
+                            {errors.asunto && touched.asunto ? <p className="text-danger">{errors.asunto}</p> : null}
                         </div>
                         <div>
                             <label htmlFor='comunicacion' className="col-form-label">Comunicacion</label>
-                            <Field type='text' as="textarea" name='comunicacion' className={`form-control`}/>
-                            {errors.comunicacion && touched.comunicacion ? <p>{errors.comunicacion}</p> : null}
+                            <Field type='text' as="textarea" name='comunicacion' className={(touched.comunicacion && errors.comunicacion) ? 'form-control is-invalid' : 'form-control'}/>
+                            {errors.comunicacion && touched.comunicacion ? <p className="text-danger">{errors.comunicacion}</p> : null}
                         </div>
                         <label htmlFor='tipo'>Tipo </label>
-                            <Field type='text' name='tipo' as="select">
+                            <Field type='text' name='tipo' as="select" className="form-select">
                                 <option value="Individual">Individual</option>
                                 <option value="Grupal">Grupal</option>
                             </Field>
-                            {errors.tipo && touched.tipo ? <p>{errors.tipo}</p> : null}
+                            {errors.tipo && touched.tipo ? <p className="text-danger">{errors.tipo}</p> : null}
                         <div>
-                            <button onClick={goToBack}  className='btn-comBack' >Volver</button>
-                            <button type='submit' className='btn-comAdd' >Agregar</button>                            
+                        <br/>
+                            <button type='submit' className='btn btn-danger btn-custom-color-login' >Agregar</button>                            
                         </div>
                     </Form>
                 )}

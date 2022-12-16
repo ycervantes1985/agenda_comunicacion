@@ -5,6 +5,7 @@ import { getAllEstudiantes, deleteEstudiante } from '../services/users.services'
 import { SearchOutlined, DeleteOutlined, FileAddOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words'
+import Container from 'react-bootstrap/esm/Container';
 
 function Profesor() {
 
@@ -159,7 +160,7 @@ const columns = [
         render: (record) =>{
             return (
                 <>
-                <Link to={'/estudiante/comunicaciones/'+record} style={{ marginRight:15}}>Comunicaciones</Link>
+                <Link to={'/estudiante/comunicaciones/'+record} className="btn btn-outline-primary" style={{ marginRight:15}}>Comunicaciones</Link>
                 
                 <DeleteOutlined onClick={()=>{
                     onDeleteEstudiante(record)
@@ -188,9 +189,14 @@ const onDeleteEstudiante = async (record) =>{
 
 
 return (
-    <div className='body-profesor'>
-        <Button className='btn-addMany' onClick={gotoAddAll}>Grupal</Button>
-        <Table columns={columns} dataSource={estudiantes} />        
+    <div className='form-container-profesor'>
+        <div className='form-header'>
+            <h4 className='form-header'>Lista de Alumnos</h4>
+                <div className="justify-btn">
+                    <button className='btn btn-outline-light' onClick={gotoAddAll}>Comunicación grupal</button>
+                </div>
+        </div>
+            <Table columns={columns} dataSource={estudiantes} />        
     </div>
 )
 }

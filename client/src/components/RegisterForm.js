@@ -63,31 +63,31 @@ const RegisterForm = (props) => {
                 <h1 className='form-header'>REGISTRO</h1>
                 <Form className= "form-login" method= "post" onSubmit={handleSubmit}>
                     <label htmlFor="firstName" className="col-sm-2 col-form-label">Nombre</label>
-                    <Field id='firstName'type="text" className="form-control" placeholder="Nombre" name='firstName'/>
-                    {errors.firstName && touched.firstName && <p>{errors.firstName}</p>}
+                    <Field id='firstName'type="text" className={(touched.firstName && errors.firstName) ? 'form-control is-invalid' : 'form-control'} placeholder="Nombre" name='firstName'/>
+                    {errors.firstName && touched.firstName && <p className="text-danger">{errors.firstName}</p>}
         
                     <label htmlFor="lastName" className="col-sm-2 col-form-label">Apellido</label>
-                    <Field  id='lastName' type="text" placeholder="Apellido" className="form-control" name='lastName'/>
-                    {errors.lastName && touched.lastName && <p>{errors.lastName}</p>}
+                    <Field  id='lastName' type="text" placeholder="Apellido" className={(touched.lastName && errors.lastName) ? 'form-control is-invalid' : 'form-control'} name='lastName'/>
+                    {errors.lastName && touched.lastName && <p className="text-danger">{errors.lastName}</p>}
 
                     <label htmlFor='rol'>Rol </label>
-                    <Field type='text' name='rol' as="select">
+                    <Field type='text' name='rol' as="select" className="form-select">
                         <option value="Profesor">Profesor</option>
                         <option value="Estudiante">Estudiante</option>
                     </Field>
-                    {errors.rol && touched.rol ? <p>{errors.rol}</p> : null}
+                    {errors.rol && touched.rol ? <p className="text-danger">{errors.rol}</p> : null}
 
                     <label htmlFor="email" className="col-form-label">Correo Electrónico</label>
-                    <Field id='email' type="text" placeholder="Email" className="form-control" name='email'/>
-                    {errors.email && touched.email && <p>{errors.email}</p>}
+                    <Field id='email' type="text" placeholder="Email" className={(touched.email && errors.email) ? 'form-control is-invalid' : 'form-control'} name='email'/>
+                    {errors.email && touched.email && <p className="text-danger">{errors.email}</p>}
 
                     <label htmlFor="password" className="col-sm-2 col-form-label">Contraseña</label>
-                    <Field  id='password' type="password" placeholder="Contraseña" className="form-control" name='password'/>
-                    {errors.password && touched.password && <p>{errors.password}</p>}
+                    <Field  id='password' type="password" placeholder="Contraseña" className={(touched.password && errors.password) ? 'form-control is-invalid' : 'form-control'} name='password'/>
+                    {errors.password && touched.password && <p className="text-danger">{errors.password}</p>}
 
                     <label htmlFor="confirmPassword" className="col-form-label">Confirmar Contraseña</label>
-                    <Field  id='confirmPassword' type="password" placeholder="Confirmar Contraseña" className="form-control" name='confirmPassword'/>
-                    {errors.confirmPassword && touched.confirmPassword && <p>{errors.confirmPassword}</p>}
+                    <Field  id='confirmPassword' type="password" placeholder="Confirmar Contraseña" className={(touched.confirmPassword && errors.confirmPassword) ? 'form-control is-invalid' : 'form-control'} name='confirmPassword'/>
+                    {errors.confirmPassword && touched.confirmPassword && <p className="text-danger">{errors.confirmPassword}</p>}
                     <br></br>
                     <button type="submit" className='btn btn-danger btn-custom-color-login ' disabled={Object.values(errors).length > 0}>Registrarse</button>
                 </Form>

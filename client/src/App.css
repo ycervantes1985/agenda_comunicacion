@@ -147,26 +147,31 @@ margin-top: 10px;
   font-family: 'Nunito', sans-serif;
   text-align: left;
   background: #fff;
-  margin: 10rem auto;
+  margin: 2rem auto;
   border-radius: 5px;
-  height: 500px;
+  height: 350px;
   width: 500px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
 }
 
 .form-container-register{
-  margin: 5rem auto;
-  height: 650px;
+  display: flex;
+  flex-direction: column;
+  height: 87vh;
   width: 500px;
 }
 
 .form-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-weight: 800;
-  padding:1rem;
+  padding: .5rem .1rem .5rem 1rem ;
   background-color: #bb2649;
   color:#fff;
 }
+
 
 .form-login{
   padding:1rem;
@@ -320,4 +325,27 @@ h2{
 
 .body-comunication-detail{
   padding: 1rem;
+}
+
+
+.home-profesor-card{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.form-container-profesor{
+  font-family: 'Nunito', sans-serif;
+  text-align: left;
+  background: #fff;
+  margin: 5rem auto;
+  border-radius: 5px;
+  width: 95vw;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.justify-btn{
+  padding-right: 3rem;
+  display: flex;
+  justify-content: flex-end;
 }
