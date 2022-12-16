@@ -7,6 +7,8 @@ export const deleteEstudiante = (id) => axios.delete(`http://localhost:8000/api/
 
 export const updateComunicacion = (id, comunicacion) => axios.put(`http://localhost:8000/api/user/comunicacion/${id}`, comunicacion);
 
+export const updateReadComunicacion = (id, comunicacion) => axios.put(`http://localhost:8000/api/user/comunicacionRead/${id}`, comunicacion);
+
 
 export const addComunicacionToEstudiante = (id, comunicacion) => axios.post(`http://localhost:8000/api/user/comunicacion/${id}`, comunicacion);
 
