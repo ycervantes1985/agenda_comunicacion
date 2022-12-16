@@ -12,31 +12,44 @@ import { getComunicacionFromEstudiante } from '../services/users.services';
 const ComunicacionDetail = () => {
 
     const {id} = useParams()
-    const [comunicacion, setComunicacion] = useState();
+    
+    const [comunicaciones, setComunicaciones] = useState();
     const navigate = useNavigate()
     const {user,setUser} = useUser();
       
     
     const getComunicacion = async() => {
         try{
-            const response = await getComunicacionFromEstudiante(user?._id, id)
-            setComunicacion(response?.data)
+            console.log(id)
+            const response = await getComunicacionFromEstudiante(user?._id)
+            setComunicaciones(response?.data.comunicaciones)
         }catch(err){
             console.log(err)
         }
 
     }
 
+let comunicacion = comunicaciones?.filter(comunicacion => comunicacion._id === id)
+
+console.log(comunicacion)
+
     useEffect(() => {
         getComunicacion();
     }, []);
 
-console.log(comunicacion)
 
     return (
         <div>
-            <p>comunicacion: {id}</p>
-            <p>user: {user?._id}</p>
+            {
+               comunicacion && 
+               <>
+                    <p>comunicacion: {comunicacion[0]._id}</p>
+                    <p>comunicacion asunto : {comunicacion[0].asunto}</p>
+                    <p>user: {user?._id}</p>
+               </> 
+               
+            }
+            
         </div>
     );
 }

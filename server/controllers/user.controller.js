@@ -181,11 +181,13 @@ module.exports.updateComunicacion = async (req, res) => {
 }
 
 module.exports.getOneComunicacionFromEstudiante = async (req, res) =>{
-    console.log("request", req.body)
+    
     try {
+        console.log("request", req.body)
+        console.log("idsss", req.params)
         const { id } = req.params;
         const estudiante = await User.find({_id:id})
-            .select({comunicaciones : { $elemMatch : {'_id': req.body.id}}})                 
+            .select({comunicaciones : { $elemMatch : {'_id': req.body.values}}})                 
             res.json({ 
             message: 'Se ha conseguido una comunicacion',
             comunicacion:estudiante[0].comunicaciones[0]
