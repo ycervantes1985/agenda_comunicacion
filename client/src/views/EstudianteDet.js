@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
-import {useParams, Link, useNavigate} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import { useUser } from "../contexts/userContext";
 import {  getComunicacionFromEstudiante, getOneEstudiante } from '../services/users.services'
-import { SearchOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
-import {BooleanField } from "@pankod/refine-antd";
+import { SearchOutlined} from '@ant-design/icons';
 import moment from 'moment';
 import { Button, Input, Space, Table, Tag } from 'antd';
 import Highlighter from 'react-highlight-words'

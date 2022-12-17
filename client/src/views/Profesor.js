@@ -6,6 +6,7 @@ import { SearchOutlined, DeleteOutlined, FileAddOutlined } from '@ant-design/ico
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words'
 import Container from 'react-bootstrap/esm/Container';
+import Swal from 'sweetalert2'
 
 function Profesor() {
 
@@ -180,6 +181,7 @@ const onDeleteEstudiante = async (record) =>{
     try {
         await deleteEstudiante(record);
         setEstudiantes(estudiantes.filter(estudiante => estudiante._id !== record));
+        Swal.fire('Se ha eliminado un estudiante')
     } catch(err) {
             console.log("Error", err)
     }

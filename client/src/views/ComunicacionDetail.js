@@ -41,7 +41,7 @@ const sendResponse = async(value) =>{
         console.log("value",value)
         value._id = id
         const response = await updateComunicacion(user._id,value)
-        Swal.fire('Se ha creado una comunicacion') 
+        Swal.fire('Se ha respondido la comunicacion') 
         navigate("/home")
         console.log(response)
     } catch (error) {
