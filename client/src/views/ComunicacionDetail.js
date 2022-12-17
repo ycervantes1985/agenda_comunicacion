@@ -72,7 +72,14 @@ const sendResponse = async(value) =>{
                             </div>
                         </div>
                     </div>
+                    {comunicacion?.respuesta?
+                    <div className='respuesta-apoderado'>  
+                        <label>Respuesta apoderado:</label>
+                        <p>{comunicacion.respuesta}</p>
+                    </div>
+                    :
                     <RespuestaForm onSubmitProp={sendResponse} />
+                }
                </div> 
                
             }

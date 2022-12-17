@@ -5,8 +5,8 @@
 
 label{
   font-family: 'Nunito', sans-serif;
-
-  font-weight: 600;
+  font-size: large;
+  font-weight: 800;
 }
 
 
@@ -427,4 +427,8 @@ footer{
   width: 100%;
   height: 50px;
   background-color: #bb2649;
+}
+
+.respuesta-apoderado{
+  padding: 1rem;
 }
