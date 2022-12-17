@@ -4,10 +4,27 @@ import * as Yup from 'yup';
 import { useParams, useNavigate } from 'react-router-dom';
 import { addComunicacionToEstudiante, addComunicacionToAllEstudiante } from '../services/users.services';
 import { Button } from 'antd';
+import ImageUpload from './ImageUpload';
+import { imgUpload } from '../services/imgUpload';
 
 import Swal from 'sweetalert2'
 
 const ComunicacionForm = () => {
+
+    const [images, setImages] = useState([]);
+    const [urlImage, setUrlImage] = useState()
+    const [loading, setLoading] = useState(false);
+
+
+    const onUpload = async () => {
+        setLoading(true);
+        const url = await imgUpload(images[0].file);
+        setLoading(false);
+        console.log("URL",url)
+
+        if (url) setUrlImage(url);
+        else alert('Error, trate nuevamente más tarde. ❌')
+    }
 
     const { id } = useParams();
     const navigate = useNavigate()
@@ -49,7 +66,7 @@ const ComunicacionForm = () => {
 
         console.log("hola estoy en la funcion")
          try {     
-            
+                values.foto = urlImage 
                 const updateEstudiante = id ? await addComunicacionToEstudiante(id, values) : await addComunicacionToAllEstudiante(values)
                 Swal.fire('Se ha creado una comunicacion')            
                 id ? navigate(`/estudiante/comunicaciones/${id}`) : navigate(`/home`)            
@@ -93,6 +110,14 @@ const ComunicacionForm = () => {
                             <option value="Grupal">Grupal</option>
                         </Field>
                         {errors.tipo && touched.tipo ? <p className="text-danger">{errors.tipo}</p> : null}
+                        <ImageUpload 
+                        onUpload={onUpload}
+                        images={images}
+                        setImages={setImages}
+                        urlImage= {urlImage}
+                        setUrlImage={setUrlImage}
+                        loading={loading}
+                        />
                         <div className='btn-aling'>
                             <button type='submit' className='btn btn-danger btn-custom-color-login' >Agregar</button>                            
                         </div>

@@ -28,7 +28,8 @@ const ComunicacionesSchema = new Schema({
     },
 
     foto: {
-        type: String
+        type: String,
+        default: 'https://res.cloudinary.com/dcng4kp6i/image/upload/v1671236470/rduhnco3nyok84vvyiaf.png'   
     },
 
     

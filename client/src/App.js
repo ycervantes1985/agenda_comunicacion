@@ -28,6 +28,7 @@ function App() {
             <Route path="/estudiante/comunicacione/:id" element={<ComunicacionDetail/>}></Route>
         </Routes>
       </UserProvider>
+        <footer/>
     </div>
   );
 }

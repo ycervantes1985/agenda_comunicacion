@@ -5,6 +5,7 @@ import {  getComunicacionFromEstudiante, updateReadComunicacion } from '../servi
 import Card from 'react-bootstrap/Card';
 import {EditOutlined,EyeTwoTone,EyeInvisibleTwoTone } from '@ant-design/icons'
 import Container from 'react-bootstrap/esm/Container';
+import moment from 'moment';
 
 const HomeAlumnos = () => {
 
@@ -61,12 +62,13 @@ const leerComunicacion = (id) =>{
                                 {comunicacion.leido?
                                 <EyeTwoTone />:
                                 <EyeInvisibleTwoTone twoToneColor="#eb2f96"/>}
+                                <p>{moment(comunicacion.createdAt).format("DD-MM-YYYY")}</p>
                             </div>
-                            <Card.Title>{comunicacion.asunto}</Card.Title>
-                            <Card.Text>
+                            <Card.Title className='card-description'>{comunicacion.asunto}</Card.Title>
+                            <Card.Text className='card-description'>
                                 {comunicacion.comunicacion}
                             </Card.Text>
-                            <div className="flex-edit-delete">
+                            <div className="flex-btn-leer">
                                 <button className="btn btn-primary" onClick={()=>leerComunicacion(comunicacion._id)}>Leer</button>
                                 {/* <EditOutlined style={{ fontSize: '1.4em'}} onClick={()=>navigate(`/admin/${comunicacion._id}`)}/> */}
                             </div>
@@ -75,7 +77,7 @@ const leerComunicacion = (id) =>{
                     </Card>)
                     })}
                 </div>
-                <h4 className='form-header'>Comunicaciones Personales</h4>
+                <h4 className='form-header'>Comunicaciones Personales de {user?.firstName} {user?.lastName}</h4>
             <div className='admin-container-flex'>
                     {anotaciones?.filter(comunicacion => comunicacion.tipo === "Individual").map((comunicacion,index)=>{
                         console.log(comunicacion);
@@ -86,12 +88,13 @@ const leerComunicacion = (id) =>{
                                 {comunicacion.leido?
                                 <EyeTwoTone />:
                                 <EyeInvisibleTwoTone twoToneColor="#eb2f96"/>}
+                                <p>{moment(comunicacion.createdAt).format("DD-MM-YYYY")}</p>
                             </div>
-                            <Card.Title>{comunicacion.asunto}</Card.Title>
-                            <Card.Text>
+                            <Card.Title className='card-description'>{comunicacion.asunto}</Card.Title>
+                            <Card.Text className='card-description'>
                                 {comunicacion.comunicacion}
                             </Card.Text>
-                            <div className="flex-edit-delete">
+                            <div className="flex-btn-leer">
                             <button className="btn btn-primary" onClick={()=>leerComunicacion(comunicacion._id)}>Leer</button>
                                 {/* <EditOutlined style={{ fontSize: '1.4em'}} onClick={()=>navigate(`/admin/${comunicacion._id}`)}/> */}
                             </div>
