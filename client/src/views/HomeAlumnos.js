@@ -53,36 +53,36 @@ const leerComunicacion = (id) =>{
 
             <h4 className='form-header'>Comunicaciones Generales</h4>
             <div className='admin-container-flex'>
-                    {anotaciones?.filter(comunicacion => comunicacion.tipo === "Grupal").map((comunicacion,index)=>{
-                        console.log(comunicacion);
-                        return(<Card  key={index} style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={comunicacion.foto} />
-                        <Card.Body>
-                            <div className="flex-edit-delete">
-                                {comunicacion.leido?
-                                <EyeTwoTone />:
-                                <EyeInvisibleTwoTone twoToneColor="#eb2f96"/>}
-                                <p>{moment(comunicacion.createdAt).format("DD-MM-YYYY")}</p>
-                            </div>
-                            <Card.Title className='card-description'>{comunicacion.asunto}</Card.Title>
-                            <Card.Text className='card-description'>
-                                {comunicacion.comunicacion}
-                            </Card.Text>
-                            <div className="flex-btn-leer">
-                                <button className="btn btn-primary" onClick={()=>leerComunicacion(comunicacion._id)}>Leer</button>
-                                {/* <EditOutlined style={{ fontSize: '1.4em'}} onClick={()=>navigate(`/admin/${comunicacion._id}`)}/> */}
-                            </div>
+                {anotaciones?.filter(comunicacion => comunicacion.tipo === "Grupal").map((comunicacion,index)=>{
+                    console.log(comunicacion);
+                    return(<Card  key={index} style={{ width: '18rem' }}>
+                    <Card.Img className="img-crop" variant="top" src={comunicacion.foto} />
+                    <Card.Body>
+                        <div className="flex-edit-delete">
+                            {comunicacion.leido?
+                            <EyeTwoTone />:
+                            <EyeInvisibleTwoTone twoToneColor="#eb2f96"/>}
+                            <p>{moment(comunicacion.createdAt).format("DD-MM-YYYY")}</p>
+                        </div>
+                        <Card.Title className='card-description'>{comunicacion.asunto}</Card.Title>
+                        <Card.Text className='card-description'>
+                            {comunicacion.comunicacion}
+                        </Card.Text>
+                        <div className="flex-btn-leer">
+                            <button className="btn btn-primary" onClick={()=>leerComunicacion(comunicacion._id)}>Leer</button>
+                            {/* <EditOutlined style={{ fontSize: '1.4em'}} onClick={()=>navigate(`/admin/${comunicacion._id}`)}/> */}
+                        </div>
 
-                        </Card.Body>
-                    </Card>)
-                    })}
-                </div>
+                    </Card.Body>
+                </Card>)
+                })}
+            </div>
                 <h4 className='form-header'>Comunicaciones Personales de {user?.firstName} {user?.lastName}</h4>
             <div className='admin-container-flex'>
                     {anotaciones?.filter(comunicacion => comunicacion.tipo === "Individual").map((comunicacion,index)=>{
                         console.log(comunicacion);
                         return(<Card  key={index} style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={comunicacion.foto} />
+                        <Card.Img className="img-crop" variant="top" src={comunicacion.foto} />
                         <Card.Body>
                             <div className="flex-edit-delete">
                                 {comunicacion.leido?

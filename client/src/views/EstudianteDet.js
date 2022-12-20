@@ -57,7 +57,7 @@ function EstudianteDet() {
                 width: 90,
             }}
             >
-                Search
+                Buscar
             </Button>
             <Button
                 onClick={() => clearFilters && handleReset(clearFilters)}
@@ -66,9 +66,9 @@ function EstudianteDet() {
                 width: 90,
             }}
             >
-                Reset
+                Reiniciar
             </Button>
-            <Button
+{/*             <Button
                 type="link"
                 size="small"
                 onClick={() => {
@@ -80,7 +80,7 @@ function EstudianteDet() {
             }}
             >
             Filter
-            </Button>
+            </Button> */}
             <Button
                 type="link"
                 size="small"
@@ -88,7 +88,7 @@ function EstudianteDet() {
                 close();
                 }}
             >
-                close
+                cerrar
             </Button>
             </Space>
         </div>
@@ -186,7 +186,7 @@ const columns = [
            let color = 'blue';
             return (
                 <Tag color={color} key={value}>
-                  Read
+                  Leido
                 </Tag>
               );
            }
@@ -195,7 +195,7 @@ const columns = [
                 let color = 'red';
                 return (
                     <Tag color={color} key={value}>
-                      Unread
+                      No Leido
                     </Tag>
                   );
                }

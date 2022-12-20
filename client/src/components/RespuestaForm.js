@@ -37,7 +37,7 @@ const RespuestaForm = (props) => {
                     <Field id='respuesta' type="text" as="textarea" placeholder="Si lo desea puede enviar una respuesta al profesor" className='form-control textarea-control' name='respuesta'/>
                     {errors.respuesta && touched.respuesta && <p>{errors.respuesta}</p>}
                     <div className='btn-aling'>
-                        <button type="submit" className='btn btn-danger btn-custom-color-login ' disabled={Object.values(errors).length > 0}>Responder</button>
+                        <button type="submit" className='btn btn-custom-color-login ' disabled={Object.values(errors).length > 0}>Responder</button>
                     </div>
                 </Form>
             </div>

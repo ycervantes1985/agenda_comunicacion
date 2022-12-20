@@ -82,7 +82,7 @@ const ComunicacionForm = () => {
     return (
         <div className='form-container'>
             <div className='form-header'>
-                <h1 className='form-header'>Comuncicación</h1>
+                <h1 className='form-header'>Comunicación</h1>
                 <div className="justify-btn">
                     <button onClick={goToBack}  className='btn btn-outline-light' >Volver</button>
                 </div>
@@ -105,11 +105,12 @@ const ComunicacionForm = () => {
                         {errors.comunicacion && touched.comunicacion ? <p className="text-danger">{errors.comunicacion}</p> : null}
 
                         <label htmlFor='tipo'>Tipo </label>
-                        <Field type='text' name='tipo' as="select" className="form-select text">
+                        <p>{comunicacion?.tipo}</p>
+                        {/* <Field type='text' name='tipo' as="select" className="form-select text">
                             <option value="Individual">Individual</option>
                             <option value="Grupal">Grupal</option>
                         </Field>
-                        {errors.tipo && touched.tipo ? <p className="text-danger">{errors.tipo}</p> : null}
+                        {errors.tipo && touched.tipo ? <p className="text-danger">{errors.tipo}</p> : null} */}
                         <ImageUpload 
                         onUpload={onUpload}
                         images={images}
@@ -119,7 +120,7 @@ const ComunicacionForm = () => {
                         loading={loading}
                         />
                         <div className='btn-aling'>
-                            <button type='submit' className='btn btn-danger btn-custom-color-login' >Agregar</button>                            
+                            <button type='submit' className='btn btn-custom-color-login' >Agregar</button>                            
                         </div>
                     </Form>
                 )}

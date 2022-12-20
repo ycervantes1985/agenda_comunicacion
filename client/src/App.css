@@ -173,7 +173,7 @@ margin-top: 10px;
   align-items: center;
   font-weight: 800;
   padding: .5rem .1rem .5rem 1rem ;
-  background-color: #bb2649;
+  background-color: #444;
   color:#fff;
 }
 
@@ -190,12 +190,14 @@ margin-top: 10px;
 }
 
 .btn-custom-color-login{
+  color: #fff;
   background-color: #bb2649;
   
 }
 
 .btn-custom-color-login:hover{
-  background-color: #ff3d6b;
+  background-color: rgba(255,61,107,1);
+  color:#fff;
   
 }
 
@@ -409,6 +411,10 @@ h2{
     justify-content: space-between;
   }
 
+.comunicacion-text{
+  margin-right: 1rem;
+}
+
   .comunicacion-img{
     border-radius: 10px;
     width: 300px;
@@ -431,4 +437,10 @@ footer{
 
 .respuesta-apoderado{
   padding: 1rem;
+}
+
+.img-crop{
+  width: 286px;
+  height: 193px;
+  object-fit: cover;
 }

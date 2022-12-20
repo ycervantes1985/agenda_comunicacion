@@ -56,7 +56,7 @@ function Profesor() {
                 width: 90,
             }}
             >
-                Search
+                Buscar
             </Button>
             <Button
                 onClick={() => clearFilters && handleReset(clearFilters)}
@@ -65,9 +65,9 @@ function Profesor() {
                 width: 90,
             }}
             >
-                Reset
+                Reiniciar
             </Button>
-            <Button
+{/*             <Button
                 type="link"
                 size="small"
                 onClick={() => {
@@ -79,7 +79,7 @@ function Profesor() {
             }}
             >
             Filter
-            </Button>
+            </Button> */}
             <Button
                 type="link"
                 size="small"
@@ -87,7 +87,7 @@ function Profesor() {
                 close();
                 }}
             >
-                close
+                cerrar
             </Button>
             </Space>
         </div>
