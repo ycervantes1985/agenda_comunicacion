@@ -41,16 +41,15 @@ const ComunicacionForm = () => {
     const getEstudiante = async()=>{
         try {
             const response = await getOneEstudiante(id)
-            console.log(response.data.estudiante)
-            setEstudiante(response.data.estudiante) 
+            console.log("get estudiante",response.data.estudiante[0])
+            setEstudiante(response.data.estudiante[0]) 
         } catch(err) {
             console.log(err)
         }
     }
 
     useEffect(() => {
-        getEstudiante()
-        
+        getEstudiante()    
     }, []);
 
     const goToBack = () =>{navigate(`/home`)}
@@ -83,7 +82,7 @@ const ComunicacionForm = () => {
          try {     
                 values.foto = urlImage 
                 const updateEstudiante = id ? await addComunicacionToEstudiante(id, values) : await addComunicacionToAllEstudiante(values)
-                id ? Swal.fire(`Se ha creado una comunicacion para ${estudiante[0]?.firstName} ${estudiante[0]?.lastName}`) : Swal.fire('Se ha creado una comunicacion general')            
+                id ? Swal.fire(`Se ha creado una comunicacion para ${estudiante?.firstName} ${estudiante?.lastName}`) : Swal.fire('Se ha creado una comunicacion general')            
                 id ? navigate(`/estudiante/comunicaciones/${id}`) : navigate(`/home`)            
         } catch(err) {
             console.log("Error", err)
@@ -91,7 +90,6 @@ const ComunicacionForm = () => {
         } 
     }
 
-    console.log(estudiante)
 
     
 
@@ -99,7 +97,7 @@ const ComunicacionForm = () => {
         <div className='form-container'>
             <div className='form-header'>
                 {id?
-                <h1 className='form-header'>Comunicación de {estudiante[0]?.firstName} {estudiante[0]?.lastName}</h1>
+                <h1 className='form-header'>Comunicación de {estudiante?.firstName} {estudiante?.lastName}</h1>
                 :<h1 className='form-header'>Comunicación Genereal</h1>}
                 <div className="justify-btn">
                     <button onClick={goToBack}  className='btn btn-outline-light' >Volver</button>
