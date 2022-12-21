@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useParams, useNavigate } from 'react-router-dom';
-import { addComunicacionToEstudiante, addComunicacionToAllEstudiante } from '../services/users.services';
+import { addComunicacionToEstudiante, addComunicacionToAllEstudiante, getOneEstudiante } from '../services/users.services';
 import { Button } from 'antd';
 import ImageUpload from './ImageUpload';
 import { imgUpload } from '../services/imgUpload';
 
 import Swal from 'sweetalert2'
+import { simpleGet } from '../services/simpleGet';
 
 const ComunicacionForm = () => {
 
@@ -28,6 +29,7 @@ const ComunicacionForm = () => {
 
     const { id } = useParams();
     const navigate = useNavigate()
+    const [estudiante, setEstudiante] = useState();
     const [comunicacion, setComunicacion] = useState({
         asunto: '',
         comunicacion: '',
@@ -36,7 +38,20 @@ const ComunicacionForm = () => {
         respuesta: '',
     })
 
-    
+    const getEstudiante = async()=>{
+        try {
+            const response = await getOneEstudiante(id)
+            console.log(response.data.estudiante)
+            setEstudiante(response.data.estudiante) 
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        getEstudiante()
+        
+    }, []);
 
     const goToBack = () =>{navigate(`/home`)}
     
@@ -68,7 +83,7 @@ const ComunicacionForm = () => {
          try {     
                 values.foto = urlImage 
                 const updateEstudiante = id ? await addComunicacionToEstudiante(id, values) : await addComunicacionToAllEstudiante(values)
-                Swal.fire('Se ha creado una comunicacion')            
+                id ? Swal.fire(`Se ha creado una comunicacion para ${estudiante[0]?.firstName} ${estudiante[0]?.lastName}`) : Swal.fire('Se ha creado una comunicacion general')            
                 id ? navigate(`/estudiante/comunicaciones/${id}`) : navigate(`/home`)            
         } catch(err) {
             console.log("Error", err)
@@ -76,13 +91,16 @@ const ComunicacionForm = () => {
         } 
     }
 
+    console.log(estudiante)
 
     
 
     return (
         <div className='form-container'>
             <div className='form-header'>
-                <h1 className='form-header'>Comunicación</h1>
+                {id?
+                <h1 className='form-header'>Comunicación de {estudiante[0]?.firstName} {estudiante[0]?.lastName}</h1>
+                :<h1 className='form-header'>Comunicación Genereal</h1>}
                 <div className="justify-btn">
                     <button onClick={goToBack}  className='btn btn-outline-light' >Volver</button>
                 </div>

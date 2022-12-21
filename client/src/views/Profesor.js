@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import { useUser } from "../contexts/userContext";
 import { getAllEstudiantes, deleteEstudiante } from '../services/users.services'
-import { SearchOutlined, DeleteOutlined, FileAddOutlined } from '@ant-design/icons';
+import { SearchOutlined, DeleteOutlined, FormOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words'
 import Container from 'react-bootstrap/esm/Container';
@@ -161,14 +161,14 @@ const columns = [
         render: (record) =>{
             return (
                 <>
-                <Link to={'/estudiante/comunicaciones/'+record} className="btn btn-outline-primary" style={{ marginRight:15}}>Comunicaciones</Link>
+                <Link to={'/estudiante/comunicaciones/'+record} className="btn btn-outline-primary" style={{ marginRight:15}}>Ver Comunicaciones</Link>
                 
-                <DeleteOutlined onClick={()=>{
-                    onDeleteEstudiante(record)
-                }} style={{color:"red", marginLeft:15}}></DeleteOutlined>
-                <FileAddOutlined onClick={()=>{
+                <FormOutlined  onClick={()=>{
                     gotoAddC(record)
-                }} style={{color:"blue", marginLeft:25}}/>
+                }} style={{fontSize: '2em',color:"blue", marginLeft:25}}/>
+                <DeleteOutlined  onClick={()=>{
+                    onDeleteEstudiante(record)
+                }} style={{fontSize: '2em',color:"red", marginLeft:15}}></DeleteOutlined>
                 </>
                 
             )
